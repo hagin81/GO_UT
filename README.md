@@ -13,8 +13,3 @@ In this project we would build a budget application that would enable the end us
 * Money saving resources such as coupons.
 
 Within this project we would also provide the average household cost of living within the US (50 States)
-
-
-
-
-
