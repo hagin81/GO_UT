@@ -1,6 +1,5 @@
 # Project 3 - Budget App
 
-
 Group name: GO UT
 Group members: Gloria Hagin and Opeyemi Adebayo
 Project Title: Budget App
@@ -14,6 +13,7 @@ Reminders
 Money saving resources such as coupons.
 
 Within this project we would also provide the average household cost of living within the US (50 States)
+
 
 
 
