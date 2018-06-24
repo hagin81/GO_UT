@@ -1,7 +1,9 @@
 # Project 3 - Budget App
 
 Group name: GO UT
+
 Group members: Gloria Hagin and Opeyemi Adebayo
+
 Project Title: Budget App
 
 
