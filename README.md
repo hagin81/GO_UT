@@ -15,3 +15,8 @@ In this project we would build a budget application that would enable the end us
 * Money saving resources such as coupons.
 
 Within this project we would also provide the average household cost of living within the US (50 States)
+
+# To run the application 
+1. Clone this repo
+2. Cd to the repo and run `python app.py`
+3. Username and password for the login screen - team / 0000 
