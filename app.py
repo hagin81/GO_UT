@@ -142,20 +142,26 @@ def login():
 @app.route('/coupons/')
 def coupons():
 
-    url = 'https://www.couponsurfer.com/rss4.xml'
-    r = requests.get( url )
-    soup = BeautifulSoup( r.content, "xml" )
-    items = soup.find_all('item')
+    # url = 'https://www.couponsurfer.com/rss4.xml'
+    # r = requests.get( url )
+    # soup = BeautifulSoup( r.content, "xml" )
+    # items = soup.find_all('item')
     
     titles = []
     links = []
     desc = []
     guid = []
-    for i in items:
-        titles.append( i.title.text )
-        links.append( i.link.text )
-        desc.append( i.description.text )
-        guid.append( i.guid.text )
+
+
+    conn = engine.connect()
+    query = "select * from coupons"
+    results = conn.execute( query ).fetchall()
+
+    for i in results:
+        titles.append( i.title )
+        links.append( i.link )
+        desc.append( i.desc )
+        guid.append( i.guid )
     
     # image = ''
     # for a in guid:
