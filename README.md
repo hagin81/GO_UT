@@ -21,3 +21,6 @@ Within this project we would also provide the average household cost of living w
 2. Cd to the repo and run `pip install -r requirements.txt`
 3. Run `python app.py`
 4. Username and password for the login screen - team / 0000 
+
+# App URL 
+https://goutbudgetapp.herokuapp.com/
