@@ -1,0 +1,60 @@
+{% extends "nav.html" %}
+{% block head %}
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="row">
+ {% endblock %}
+
+<!-- nav -->
+
+{% block content %}
+    </div>
+    <div class="row">
+
+        <!-- transactions -->
+        <div class="col-lg-12 coupons">
+            <h2>Resources</h2>
+        <div class="resources">
+     <h2>BUDGET TO PROMOTE FINANCIAL FREEDOM.</h2> <br>
+
+The purpose of the GO-UT Budgeting App is to help individuals and businesses visualize their spending habits and take control of their expenditures. According to an article on CNBC,  63 percent of Americans cannot cover a $500 emergency expense, due to mismanagement of resources. We have built an app to help users monitor their spendings and set a budget for their expenses. Along with the App there are resources available it to help users save, monitor their credit score and learn facts about various types of finances. 
+
+<br><br>
+According to Bank of America, first step of budgeting is to keep a record of daily expenses, then develop a budget and save towards something. 
+The best way to save is to have the 50/30/20 ratio in mind. That is, spend 50 percent of income on needful expenses, 30 percent on wants and save 20 percent. These steps keep one in alignment with personal goals. <br>
+In addition, Well Kept Wallet provides resources on how to make quick cash daily. Some of the ideas provided are uber/lyft, Airbnb, renting out a room to visitors or travelers, fulfilling miscellaneous chores on taskers, selling unused clothes and taking surveys on survey junkie.<br><br>
+
+<a href="https://www.google.com/amp/s/www.cnbc.com/amp/2015/01/07/60-percent-of-americans-cant-cover-unexpected-expenses.html" target="_blank"> 62% of Americans can't cover unexpected expenses </a><br>
+
+<a href="https://money.usnews.com/money/personal-finance/saving-budget/articles/2017-05-16/8-scary-financial-statistics-and-how-to-avoid-becoming-one" target="_blank"> 8 Scary Financial Statistics – and How to Avoid Becoming One </a><br>
+
+<a href="https://www.nfcc.org/our-services/credit-debt-counseling/?gclid=EAIaIQobChMIxPro09ed3AIVCpRpCh2taQtCEAAYASAAEgKyPPD_BwE" target="_blank"> Credit and Debt Counseling </a><br>
+
+
+
+    </div><!-- container fluid-->
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+</body>
+</html>
+{% endblock %}

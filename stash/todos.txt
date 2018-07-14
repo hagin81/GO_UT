@@ -1,0 +1,4 @@
+add comma to figure
+change font color and size for navbar
+change nav to macro (done)
+split up groceries and shopping

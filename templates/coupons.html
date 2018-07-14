@@ -1,0 +1,54 @@
+{% extends "nav.html" %}
+{% block head %}
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="row">
+ {% endblock %}
+
+<!-- nav -->
+
+{% block content %}
+    </div>
+    <div class="row">
+
+        <!-- transactions -->
+        <div class="col-lg-12 coupons">
+            <h2>Coupons</h2>
+        <div class="links">
+      {% for i in data %}
+      <div class="col-sm-4 image-block">
+       <a href="{{ i[1]}}" target="_blank">{{ i[0] }}</a><br>{{ i[2]| safe }}
+     </div>
+       {% endfor %}                                                                               
+
+    </div><!-- container fluid-->
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+

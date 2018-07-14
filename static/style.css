@@ -1,0 +1,91 @@
+.page-title { 
+    text-align: center;
+    color: navy;
+    background-color: aqua;
+}
+
+/*.header-image {
+    text-align: center;
+    background-image: url("images/money11.png");
+    width: 100%;
+    height: 500px;
+    background-color: rgb(73, 97, 117);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}*/
+
+.login {
+	margin-top:50px;
+	background-color: aqua;
+	padding: 25px;
+	box-shadow: 25px;
+}
+
+.navbar {
+	font-weight: 100px;
+	background-color: black;
+}
+
+.details { 
+margin-top: 50px;
+
+ }
+
+.dropdown { 
+width: 150px !important;
+text-align: center;
+ }
+
+ .total, .total-amount { 
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #AA4499;
+  color: white;
+  }
+
+ label { 
+ padding-right: 50px;
+
+ }
+.transactions { 
+text-align: center;
+
+ }
+
+td, tr {
+	text-align: left;
+}
+
+.bars { 
+	margin-top:80px;
+	font-weight: bold;
+	font-size: 16px;
+ }
+
+ .progress.active .progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+.resources {
+
+	font-size: 18px !important;
+}
+
+.ratio { 
+
+color: #7e77a7;
+padding-left: 10px;
+ }
+
+ .image-block {
+    border: 3px solid white ;
+    background-color: white;
+    padding: 0px;    
+    margin: 0px;
+    height:200px;
+    text-align: center;
+    vertical-align: bottom;
+}

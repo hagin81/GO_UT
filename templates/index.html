@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+     <style>
+     .header-image {
+    text-align: center;
+    background-image: url({{ url_for('static', filename='images/money11.png') }});
+    width: 100%;
+    height: 500px;
+    background-color: rgb(73, 97, 117);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+    </style>
+    
+    <div class="container-fluid">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        <div class="login">
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="email">LOGIN:</label>
+                    <input type="text" class="form-control" id="login" name="login">
+                </div><!-- form-group for login -->
+                <div class="form-group">
+                    <label for="pwd">PASSWORD:</label>
+                    <input type="password" class="form-control" id="pwd" name="pwd">
+                </div><!-- form-group for password -->
+                <div class="checkbox">
+
+                    <!-- if login fails  -->
+                    {% if data == False %}
+                    <div style="color: red"><strong> Login Failed </strong> </div>
+                    {% endif %}
+                    <label><input type="checkbox"> Remember me</label>
+                </div><!-- checkbox -->
+                <button type="submit" class=btn btn-default">Submit</button>
+            </form>
+        </div><!-- login -->
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="page-title"><h1>BUDGET APP</h1></div><!-- page-title -->
+    <!-- navigation enabled while background picture stays still -->
+
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+    </div><!-- container fluid-->
+</body>
+</html>
+
+
+
+
+

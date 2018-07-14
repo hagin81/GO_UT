@@ -1,0 +1,147 @@
+{% extends "nav.html" %}
+{% block head %}
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="row">
+ {% endblock %}
+
+<!-- nav -->
+
+{% block content %}
+    </div>
+    <div class="row">
+
+        <!-- transactions -->
+        <div class="col-lg-6 income">
+            <h2>Income</h2>
+        <div class="links">
+       <form class="form-inline" autocomplete="off" action="/save-income" method="post">
+  
+  <table class="table-striped">
+
+  <tr>
+  <div class="form-group" action="/budget" method="POST">
+
+   <td><label for="email">Monthly Income</label></td>
+   <td><input type="number" class="form-control"  name="income" value="{{ data }}"></td>
+  </div>
+  <td><button type="submit" class="btn btn-default">Submit</button></td>
+  </tr>
+<tr></tr>
+<tr></tr>
+  <tr>
+<td> <strong> Yearly Income:  {{ "${:,.2f}".format( total )}} </strong></td>
+</tr>
+
+<tr>
+    <td> <strong> Yearly Spending: {{ "${:,.2f}".format( data * 12 )}}</strong> </td>
+</tr>
+</table>
+
+<br> 
+
+</form>
+
+                                                                     
+
+    </div>
+    </div><!-- container fluid-->
+    <div class="col-lg-6">
+
+    <canvas id="bar-chart" width="400" height="250"></canvas>
+
+
+    </div>
+
+<div class="row">
+    <canvas id="year"></canvas>
+
+</div>
+
+    <script src="https://codepen.io/anon/pen/aWapBE.js"></script><!-- color generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+        <script>
+
+// Bar chart
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Spending", "Income" ],
+      datasets: [
+        {
+          label: "SPENDING vs INCOME - 12 Months",
+          backgroundColor: ["#3e95cd", "#8e5ea2" ],
+          data: [ {{ total|round(2) }}, {{ data * 12  }}]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'SPENDING vs INCOME - 12 Months'
+      },
+      scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                // OR //
+                beginAtZero: true   // minimum value will be 0.
+            }
+        }]
+    }
+    }
+});
+
+
+var ctx = document.getElementById("year").getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["Jul 17", "Aug 17", "Sept 17", "Oct 17", "Nov 17", "Dec 17", "Jan 18", "Feb 18", "Mar 18", "Apr 18", "May 18", "June 18", "Jul 18"],
+    datasets: [{
+      label: 'Spending',
+      backgroundColor: "#3e95cd", 
+      data: [ {% for i in income %}
+               "{{ i[1] }}",
+               {% endfor %}
+      ],
+    }, {
+      label: 'Income',
+      backgroundColor: "#8e5ea2",
+      data: [ {% for i in range(12) %}
+              "{{ data }}",
+              {% endfor %}
+      ]
+    }]
+  }
+});
+    </script>
+
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+</body>
+</html>
+{% endblock %}

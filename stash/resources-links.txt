@@ -1,0 +1,54 @@
+Transportation USA
+https://en.wikipedia.org/wiki/Major_airlines_of_the_United_States
+
+Auto loans companies USA
+https://www.netcredit.com/blog/top-auto-loan-companies/
+
+list of grocery/shopping stores USA
+https://nrf.com/2015/top100-table
+
+list of grocery/shopping stores USA (prefered)
+https://nrf.com/resources/annual-retailer-lists/top-100-retailers/stores-top-retailers-2016
+
+mortgage companies in the USA
+https://www.mortgageloan.com/lenders
+
+List of gas/fuel stations in the USA
+https://en.wikipedia.org/wiki/List_of_filling_stations_in_North_America
+
+
+
+
+print("Lemuellah")
+
+
+
+
+Costco (g&g)
+Mobil (g,g&u)
+
+select * from expense where strftime('%Y%m',date) = '201805';
+
+
+
+
+
+
+ select * from expense where Date between '2018-05-01' and '2018-05-31';
+select * from expense where Date between '2018-04-01' and '2018-04-30';
+select * from expense where Date between '2018-03-01' and '2018-03-30';
+select * from expense where Date between '2018-02-01' and '2018-02-28';
+select * from expense where Date between '2018-01-01' and '2018-01-31';
+select * from expense where Date between '2017-12-01' and '2017-12-31';
+select * from expense where Date between '2017-11-01' and '2017-11-30';
+select * from expense where Date between '2017-10-01' and '2018-10-31';
+select * from expense where Date between '2017-09-01' and '2018-09-30';
+select * from expense where Date between '2017-08-01' and '2018-08-31';
+select * from expense where Date between '2017-07-01' and '2018-07-31';
+select * from expense where Date between '2017-06-01' and '2018-06-30';
+
+
+
+
+
+my curiosity, my ability to break down complex concepts into simple ideas and my empathy for people

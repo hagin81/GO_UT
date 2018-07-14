@@ -1,0 +1,77 @@
+{% extends "nav.html" %}
+{% block head %}
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="row">
+ {% endblock %}
+
+<!-- nav -->
+
+{% block content %}
+    </div>
+    <div class="row">
+
+        <!-- transactions -->
+        <div class="col-lg-12 transactions">
+            <h2>Transactions</h2>
+        <div class="links">
+        <div class="btn-group">
+    <a href="/spending"><button type="button" class="btn btn-primary">Spending</button>
+    <a href="/budget"><button type="button" class="btn btn-primary">Budget</button></a>
+  </div>
+        </div>                                                                                      
+  <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+           {% for i in data %}
+      <tr>
+        <td>{{ i["Date"]}}</td>
+        <td>{{ i["Description"] }}</td>
+        <td>{{ "${:,.2f}".format(i["Amount"]) }}</td>
+      </tr>
+         {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+        </div>
+
+    </div>
+    </div><!-- container fluid-->
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+

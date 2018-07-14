@@ -1,0 +1,170 @@
+{% extends "nav.html" %}
+{% block head %}
+<!DOCTYPE html>
+<html>
+<head>
+<Title>BUDGET APP</Title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <!-- background image  -->
+    <div class="header-image">
+        <!-- login form -->
+        <div class="col-lg-2">
+        
+        </div><!-- col-lg-4 --> 
+    </div><!-- header-image-->
+        </div><!-- row -->
+    <div class="row">
+ {% endblock %} 
+
+    
+  {% block content %}
+    </div>
+    <div class="row">
+
+        <!-- transactions -->
+    
+            <h2>Spending</h2>
+       <div class="summary"><h4>Summary</h4>
+        <br>
+        <br>
+        
+        <div class="col-lg-4">
+        <table class="table table-striped">
+            <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+
+    <!-- total spending -->
+
+
+    {% for i in summary %}
+    <tr>
+        <td>
+    {{ i["Category"] }}
+</td>
+ <td class="amount">
+    {{ "${:,.2f}".format(i["Amount"]) }}
+</td>
+    {% endfor %}
+</tr>
+<tr><td class="total">Total</td><td id="grand" class="total-amount">{{ "${:,.2f}".format(sum) }} </td></tr>  
+</table>
+</div><!-- col-lg-4--> 
+
+<!-- chart -->
+<div class="col-lg-8">
+<div class="form-group">
+  <label for="sel1">Select Month and Year:</label>
+  <select class="form-control dropdown" id="sel1">
+<option value="201707">July 2017</option>
+<option value="201708">August 2017</option>
+<option value="201709">September 2017</option>
+<option value="201710">October 2017</option>
+<option value="201711">November 2017</option>
+<option value="201712">December 2017</option>
+<option value="201801">January 2018</option>
+<option value="201802">February 2018</option>
+<option value="201803">March 2018</option>
+<option value="201804">April 2018</option>
+<option value="201805">May 2018</option>
+<option value="201806">June 2018</option>
+<option value="201807" selected="selected">July 2018</option>
+  </select>
+</div>
+<h1 class="month-year"></h1>
+<canvas id="doughnut-chart" width="800" height="450"></canvas>
+</div>
+</div>
+</div><!-- row -->
+  
+  <div class="row">                                                                                
+  <div class="details">         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+           {% for i in data %}
+      <tr>
+        <td>{{ i["Date"] | replace("00:00:00.000000","")}}</td>
+        <td>{{ i["Description"] }}</td>
+        <td>{{ "${:,.2f}".format(i["Amount"])}}</td>
+        <td>{{ i["Category"] }}</td>
+      </tr>
+         {% endfor %}
+    </tbody>
+  </table>
+</div><!-- row -->
+</div>
+</div>
+    
+
+ 
+    </div><!-- container-->
+    <script src="https://codepen.io/anon/pen/aWapBE.js"></script><!-- color generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript">
+        myData = [ {% for i in summary %}
+                "{{ i[ "Amount" ]}}", 
+                {% endfor %}],
+        new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: { 
+      labels: [ {% for i in summary %}
+                "{{ i[ "Category" ]}}", 
+                {% endfor %}],
+      datasets: [
+        {
+          label: "Spending",
+           data: [ {% for i in summary %}
+                "{{ i[ "Amount" ] }}", 
+                {% endfor %}],
+          backgroundColor: palette('tol', myData.length).map(function(hex) {
+        return '#' + hex;
+      })
+         
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Spending'
+      }
+    }
+});
+
+    // sum of amount 
+    // sum = 0
+    // for( var i in myData ) {
+    //     if ( myData[i] == "None") break;
+    //     sum += parseFloat( myData[i])
+    // }
+    // console.log(sum)
+
+    // document.getElementById("grand").innerHTML = sum.toFixed(2);
+
+    </script>
+    
+    <script src="{{ url_for('static', filename = 'app.js')}}"></script>
+</body>
+</html>
+{% endblock %}

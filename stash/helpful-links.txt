@@ -1,0 +1,6 @@
+https://carto.com/torque/
+
+
+
+
+<img src="{{ url_for('static', filename = 'images/money.png')}}"/>
